@@ -1,5 +1,6 @@
 const refs = {
   body: document.querySelector('body'),
+  button: document.querySelector('button'),
   startBtn: document.querySelector('button[data-start]'),
   stopBtn: document.querySelector('button[data-stop]'),
 };
