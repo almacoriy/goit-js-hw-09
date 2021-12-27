@@ -18,6 +18,7 @@ const refs = {
 refs.startBtn.setAttribute('disabled', true);
 refs.startBtn.addEventListener('click', onStartTimer);
 
+//     Конфиг flatpickr
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -30,6 +31,7 @@ const options = {
 
 const fp = flatpickr('#datetime-picker', { ...options });
 
+//     Проверяем выбранную дату
 function onGetCurrentDate() {
   if (fp.selectedDates[0] < fp.config.defaultDate.getTime()) {
     Notiflix.Notify.failure('Please choose a date in the future');
@@ -38,6 +40,7 @@ function onGetCurrentDate() {
   refs.startBtn.removeAttribute('disabled');
 }
 
+//     Запускаем/останавливаем таймер
 function onStartTimer() {
   const intervalId = setInterval(() => {
     let timeDiff = fp.selectedDates[0] - new Date();
@@ -54,10 +57,12 @@ function onStartTimer() {
   }, 1000);
 }
 
+//     Форматируем выводимые данные
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
 }
 
+//     Конвертация времени
 function convertMs(ms) {
   // Number of milliseconds per unit of time
   const second = 1000;
