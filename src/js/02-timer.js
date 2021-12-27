@@ -42,6 +42,8 @@ function onGetCurrentDate() {
 
 //     Запускаем/останавливаем таймер
 function onStartTimer() {
+  refs.startBtn.setAttribute('disabled', true);
+
   const intervalId = setInterval(() => {
     let timeDiff = fp.selectedDates[0] - new Date();
     let time = convertMs(timeDiff);
@@ -83,18 +85,10 @@ function convertMs(ms) {
 }
 
 //=======Немного стилей=======
-
-refs.input.style.width = '220px';
-refs.input.style.height = '40px';
-refs.input.style.fontSize = '22px';
-refs.startBtn.style.width = '80px';
-refs.startBtn.style.height = '40px';
-refs.startBtn.style.fontSize = '22px';
+refs.input.style.cssText = 'width: 220px !important; height: 40px; font-size: 22px;';
+refs.startBtn.style.cssText = 'width: 80px !important; height: 40px; font-size: 22px;';
 refs.timer.style.display = 'flex';
 refs.field.forEach(elem => {
-  elem.style.display = 'flex';
-  elem.style.flexDirection = 'column';
-  elem.style.alignItems = 'center';
-  elem.style.padding = '10px';
-  elem.style.fontSize = '20px';
+  elem.style.cssText =
+    'display: flex  !important; flex-direction: column; align-item: center; padding: 10px; font-size: 20px';
 });
