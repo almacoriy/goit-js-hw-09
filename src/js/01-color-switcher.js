@@ -11,10 +11,10 @@ refs.startBtn.addEventListener('click', onStart);
 refs.stopBtn.addEventListener('click', onStop);
 
 function onStart() {
+  refs.startBtn.setAttribute('disabled', true);
+  refs.stopBtn.removeAttribute('disabled');
   intervalId = setInterval(() => {
     refs.body.style.backgroundColor = getRandomHexColor();
-    refs.stopBtn.removeAttribute('disabled');
-    refs.startBtn.setAttribute('disabled', true);
   }, 1000);
 }
 
