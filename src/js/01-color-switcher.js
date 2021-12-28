@@ -13,6 +13,7 @@ refs.stopBtn.addEventListener('click', onStop);
 function onStart() {
   refs.startBtn.setAttribute('disabled', true);
   refs.stopBtn.removeAttribute('disabled');
+
   intervalId = setInterval(() => {
     refs.body.style.backgroundColor = getRandomHexColor();
   }, 1000);
